@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Quiz Game</title>
+  <link rel="stylesheet" href="SCT_WD_3A.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+
+<div class="container">
+  <h1>Quiz Game</h1>
+  <form id="quizForm"></form>
+  <button type="button" class="btn" onclick="submitQuiz()">Submit Quiz</button>
+  <div id="result" class="result"></div>
+</div>
+
+<script>
+  const questions = [
+    { type: 'radio', question: 'What is the capital of France?', name: 'q1', options: ['Paris', 'London', 'Rome'], answer: 'Paris' },
+    { type: 'checkbox', question: 'Select programming languages:', name: 'q2', options: ['Python', 'HTML', 'CSS', 'C++'], answer: ['Python', 'C++'] },
+    { type: 'text', question: 'Fill in the blank: JavaScript runs in the _____', name: 'q3', answer: 'browser' },
+    { type: 'radio', question: 'What is the boiling point of water?', name: 'q4', options: ['100°C', '90°C', '80°C'], answer: '100°C' },
+    { type: 'checkbox', question: 'Select fruits:', name: 'q5', options: ['Apple', 'Carrot', 'Banana', 'Tomato'], answer: ['Apple', 'Banana'] },
+    { type: 'text', question: 'Fill in the blank: The earth orbits the _____', name: 'q6', answer: 'sun' },
+    { type: 'radio', question: 'Largest ocean on Earth?', name: 'q7', options: ['Pacific', 'Atlantic', 'Indian'], answer: 'Pacific' },
+    { type: 'checkbox', question: 'Select prime numbers:', name: 'q8', options: ['2', '3', '4', '5'], answer: ['2', '3', '5'] },
+    { type: 'text', question: 'What color do you get when you mix red and white?', name: 'q9', answer: 'pink' },
+    { type: 'radio', question: 'Which planet is known as the Red Planet?', name: 'q10', options: ['Earth', 'Mars', 'Jupiter'], answer: 'Mars' },
+    { type: 'checkbox', question: 'Select even numbers:', name: 'q11', options: ['1', '2', '3', '4'], answer: ['2', '4'] },
+    { type: 'text', question: 'What is the chemical symbol for water?', name: 'q12', answer: 'h2o' },
+    { type: 'radio', question: 'Fastest land animal?', name: 'q13', options: ['Cheetah', 'Tiger', 'Leopard'], answer: 'Cheetah' },
+    { type: 'checkbox', question: 'Which are planets?', name: 'q14', options: ['Mars', 'Sun', 'Venus', 'Moon'], answer: ['Mars', 'Venus'] },
+    { type: 'text', question: 'Which language is used to style web pages?', name: 'q15', answer: 'css' },
+    { type: 'radio', question: 'Smallest prime number?', name: 'q16', options: ['1', '2', '3'], answer: '2' },
+    { type: 'checkbox', question: 'Select mammals:', name: 'q17', options: ['Whale', 'Shark', 'Bat', 'Frog'], answer: ['Whale', 'Bat'] },
+    { type: 'text', question: 'Which gas do humans need to breathe?', name: 'q18', answer: 'oxygen' },
+    { type: 'radio', question: 'Which is a programming language?', name: 'q19', options: ['Python', 'Snake', 'Cobra'], answer: 'Python' },
+    { type: 'checkbox', question: 'Select browsers:', name: 'q20', options: ['Chrome', 'Firefox', 'Excel', 'Safari'], answer: ['Chrome', 'Firefox', 'Safari'] },
+  ];
+
+  const form = document.getElementById('quizForm');
+
+  questions.forEach((q, index) => {
+    const div = document.createElement('div');
+    div.className = 'question';
+    div.innerHTML = `<h3>${index + 1}. ${q.question}</h3>`;
+
+    const optionsDiv = document.createElement('div');
+    optionsDiv.className = 'options';
+
+    if (q.type === 'radio' || q.type === 'checkbox') {
+      q.options.forEach(opt => {
+        optionsDiv.innerHTML += `<label><input type="${q.type}" name="${q.name}${q.type === 'checkbox' ? '[]' : ''}" value="${opt}"> ${opt}</label>`;
+      });
+    } else if (q.type === 'text') {
+      optionsDiv.innerHTML = `<input type="text" name="${q.name}" placeholder="Your answer here">`;
+    }
+
+    div.appendChild(optionsDiv);
+    form.appendChild(div);
+  });
+
+  function submitQuiz() {
+    let score = 0;
+    questions.forEach(q => {
+      if (q.type === 'radio') {
+        const selected = document.querySelector(`input[name="${q.name}"]:checked`);
+        if (selected && selected.value === q.answer) score++;
+      } else if (q.type === 'checkbox') {
+        const selected = document.querySelectorAll(`input[name="${q.name}[]"]:checked`);
+        const selectedValues = Array.from(selected).map(i => i.value);
+        if (selectedValues.length === q.answer.length && selectedValues.every(val => q.answer.includes(val))) score++;
+      } else if (q.type === 'text') {
+        const val = document.querySelector(`input[name="${q.name}"]`).value.trim().toLowerCase();
+        if (val === q.answer) score++;
+      }
+    });
+    document.getElementById('result').textContent = `You scored ${score} out of ${questions.length}! 🎉`;
+  }
+</script>
+  
+
+
+</body>
+</html>

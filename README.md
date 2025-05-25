@@ -1,48 +1,40 @@
-🧠 Quiz Game Application – SCT_WD_3A
+# SCT_WD_3A - Interactive Quiz Game | SkillCraft Technology
 
-Welcome to the Quiz Game Application developed under SkillCraft Technology!
-This project (SCT_WD_3A) is a responsive, interactive web-based quiz created using HTML, CSS, and JavaScript. It challenges users with various question types and provides instant scoring.
+This project is a dynamic and engaging **Quiz Game Web Application** built using **HTML**, **CSS**, and **JavaScript**. It presents users with a variety of questions, including multiple choice, single-option, and fill-in-the-blank formats.
 
-🎮 Features
+## 🧠 Features
 
-✅ Multiple Choice Questions
-🔘 Single Option Selections
-✍️ Fill-in-the-Blank Questions
-📊 Real-Time Score Tracking
-📱 Responsive Design – Works on desktop and mobile
-🔁 Restart Option
-🎨 Clean & Simple User Interface
-📂 Technologies Used
+- ✅ Multiple types of questions: MCQ, Single Option, Fill-in-the-Blank
+- 📊 Real-time score tracking
+- 🕹️ Instant feedback on each answer
+- 🎨 Visually interactive UI with modern gradients and animations
+- 🔁 Restart quiz anytime to retake
+- 🔄 Question shuffling for different quiz attempts
+- 📱 Fully responsive layout
 
-HTML – Structures the quiz layout
-CSS – Styles the interface and ensures responsiveness
-JavaScript – Controls quiz logic, answer validation, and scoring
+## 🛠️ Technologies Used
 
-🎯 How to Use
+- **HTML5**
+- **CSS3**
+- **JavaScript (ES6+)**
 
-Clone the repository:
+## 📁 File Info
 
-git clone https://github.com/Mohan8877/SCT_WD_3A.git
-Navigate to the folder and open SCT_WD_3A.html:
+- **File Name:** `SCT_WD_3A`
+- **Developer:** [Mohan8877](https://github.com/Mohan8877)
+- **Purpose:** To test and enhance user knowledge in a fun, interactive format—developed as part of SkillCraft Technology’s project series.
 
-cd SCT_WD_3A
-open SCT_WD_3A.html  # or double-click to launch
-Follow on-screen instructions, answer the questions, and view your final score.
+## 🚀 How to Use
 
-📸 Preview
+1. Download or clone the repository.
+2. Open `index.html` in a web browser.
+3. Click “Start Quiz” to begin answering questions.
+4. Your score will be displayed at the end.
 
-1.quiz.png
-2.quiz1.png
-🛠️ Future Enhancements
+## 📌 Note
 
-1.Timer for each question
-2.Random question generator
-3.User login and score history
-4.Difficulty levels and categories
-5.Audio feedback and animations
+You can easily expand the quiz by adding more questions in the JavaScript question array.
 
-👨‍💻 Developed By
+---
 
-SkillCraft Technology
-Project by Mohan8877
-Created to demonstrate front-end interactivity and educational tools
+🧩 Developed by **Mohan8877** | SkillCraft Technology
